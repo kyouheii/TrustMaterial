@@ -1,0 +1,22 @@
+<%= form_with(model: carfare, local: true) do |form| %>
+  <% if carfare.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(carfare.errors.count, "error") %> prohibited this carfare from being saved:</h2>
+
+      <ul>
+      <% carfare.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :worked_on %>
+    <%= form.date_select :worked_on %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
