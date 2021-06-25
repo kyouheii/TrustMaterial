@@ -1,0 +1,29 @@
+<% provide(:title, @user.name) %>
+<div>
+  <table class="table table-bordered table-condensed user-table">
+    <tr>
+      <td>
+        <%= link_to "⇦", user_path(date: @first_day.prev_month), class: "btn btn-primary"%>
+        【<%= l(@first_day, format: :middle) %>】スケジュール管理表
+        <%= link_to "⇨", user_path(date: @first_day.next_month), class: "btn btn-primary" %>
+      </td>
+    </tr>
+
+  </table>
+</div>
+
+<div>
+  <table class="table table-bordered table-condensed table-hover" id="table-schedules">
+    <thead>
+      <tr>
+        <th>日付</th>
+        <th>曜日</th>
+      </tr>
+      <tr>
+        <th>出勤場所</th>
+        <th>出勤可否</th>
+        <th>備考欄</th>
+      </tr>
+    </thead>
+  </table>
+</div>
