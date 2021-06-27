@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'static_pages/top'
   resources :carfares
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
