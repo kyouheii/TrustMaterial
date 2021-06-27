@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  get 'static_pages/top'
+  get 'users/new'
+  root 'static_pages#top'
+  get '/signup', to: 'users#new'
   resources :carfares
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
