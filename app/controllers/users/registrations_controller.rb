@@ -11,7 +11,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   # def create
-  #   super
+  #   if params[:user][:password] != params[:user][:password_confirmation]
+  #     redirect_to new_user_registration_path, alert: 'パスワードが一致していません。'
+  #   else
+  #     password = Devise.friendly_token.first(7)
+  #     if @user = User.find_by(email: params[:user][:email])
+  #       redirect_to new_user_registration_path, alert: 'すでにメールアドレスが存在します。'
+  #     else
+  #       @user = User.create(email: params[:user][:email], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
+  #       sign_in @user
+  #       redirect_to new_user_registration_path, notice: 'ログインしました。'
+  #     end
+  #   end
   # end
 
   # GET /resource/edit
@@ -58,5 +69,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
+  # end
+
+  # private
+
+  # def user_params
+  #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
   # end
 end

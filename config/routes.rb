@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'users/new'
   root 'static_pages#top'
-  get '/signup', to: 'users#new'
-  resources :carfares
+
   devise_for :users, :controllers => {
     :registrations => 'users/registrations',
     :sessions => 'users/sessions'   
@@ -15,4 +13,10 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
+  resources :users do
+    member do
+      resources :carfares # 交通費
+      resources :schedules # スケジュール
+    end
+  end
 end

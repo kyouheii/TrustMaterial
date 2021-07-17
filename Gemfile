@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.7'
 gem 'bootstrap-sass'
+gem 'bcrypt' 
+gem 'will_paginate' # この行を追加してください。
+gem 'bootstrap-will_paginate'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.6'
 # Use sqlite3 as the database for Active Record
@@ -34,7 +37,12 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 # Reduces boot times through caching; required in config/boot.rb
-gem 'bootsnap', '>= 1.1.0', require: false
+
+# Bootstrap
+gem 'bootsnap'
+gem 'bootstrap', '~> 4.5'
+gem 'jquery-rails'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 # ログイン機能
 gem 'devise'
@@ -42,7 +50,6 @@ gem 'devise'
 # 日本語化
 gem 'rails-i18n', '~> 5.1'
 gem 'devise-i18n'
-
 
 group :development, :test do
   gem 'sqlite3'

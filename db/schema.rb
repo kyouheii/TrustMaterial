@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_22_123539) do
+ActiveRecord::Schema.define(version: 2021_07_15_112922) do
 
   create_table "carfares", force: :cascade do |t|
     t.date "worked_on"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carfares_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.date "worked_on"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -23,6 +33,8 @@ ActiveRecord::Schema.define(version: 2021_06_22_123539) do
     t.string "encrypted_password", default: "", null: false
     t.string "name", default: "", null: false
     t.boolean "admin", default: false
+    t.string "phone_number"
+    t.string "nearest_station"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -1,0 +1,51 @@
+<div>
+  <table class="table table-bordered table-condensed user-table">
+    <tr>
+      <td>
+        <%= link_to "⇦", new_schedule_path(@user, date: @first_day.prev_month), class: "btn btn-primary"%>
+        【<%= l(@first_day, format: :middle) %>】勤怠管理表
+        <%= link_to "⇨", new_schedule_path(@user, date: @first_day.next_month), class: "btn btn-primary btn-attendance" %>
+      </td>
+    </tr> 
+  </table>
+</div>
+
+<div>
+   <table class="table table-bordered table-condensed user-table">
+      <thead>
+        <tr>
+          <th>日付</th>
+          <th>曜日</th>
+          <th>名前</th>
+          <th>出勤(◉or✖️)</th>
+          <th>現場名</th>
+          <th>備考</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @schedules.each do |day| %>
+          <% css_class = 
+            case %w{日 月 火 水 木 金 土}[day.worked_on.wday]
+            when '土'
+              'text-primary'
+            when '日'
+              'text-danger'
+            end
+          %>
+
+          <tr>
+            <td><%= day.worked_on.to_s(:date) %></td>
+            <td class="<%= css_class %>"><%= %w{日 月 火 水 木 金 土}[day.worked_on.wday] %></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        <% end %>
+     </tbody>
+   </table>
+</div>
