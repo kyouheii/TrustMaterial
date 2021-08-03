@@ -68,6 +68,23 @@ p {
   text-decoration: none;
 }
 
+.table-schedules {
+  th {
+    vertical-align: middle !important; 
+    text-align: center !important;
+  }
+  td {
+    vertical-align: middle !important;
+    text-align: center !important;
+  }
+}
+
+/* 丸ばつの定義*/
+.form-round-batsu {
+  font-size: 1.5em;
+  padding: 0 15px !important;
+}
+
 /* debug */
 
 .debug_dump {
@@ -78,4 +95,21 @@ p {
   -moz-box-sizing:    border-box;
   -webkit-box-sizing: border-box;
   box-sizing:         border-box;
+}
+
+/* button */
+.actions_button {
+  display       : inline-block !important;
+  border-radius : 5% !important;          /* 角丸       */
+  font-size     : 18pt !important;        /* 文字サイズ */
+  text-align    : center !important;      /* 文字位置   */
+  cursor        : pointer !important;     /* カーソル   */
+  padding       : 12px 12px !important;   /* 余白       */
+  background    : #000066 !important;     /* 背景色     */
+  color         : #ffffff !important;     /* 文字色     */
+  line-height   : 1em !important;         /* 1行の高さ  */
+  transition    : .3s !important;         /* なめらか変化 */
+  box-shadow    : 6px 6px 3px #666666 !important;  /* 影の設定 */
+  border        : 2px solid #000066 !important;    /* 枠の指定 */
+
 }

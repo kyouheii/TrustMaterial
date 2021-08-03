@@ -16,7 +16,14 @@ Rails.application.routes.draw do
   resources :users do
     member do
       resources :carfares # 交通費
-      resources :schedules # スケジュール
+      resources :schedules do # スケジュール
+        collection do
+          get 'edit_one_month'
+          patch 'update_one_month'
+          get 'all_edit_one_month' # 全体のスケジュール
+          patch 'all_update_one_month'
+        end 
+      end 
     end
   end
 end

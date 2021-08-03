@@ -62,12 +62,18 @@ $days_of_the_week = %w{日 月 火 水 木 金 土}
     end
     @schedules = @user.schedules.where(worked_on: @first_day..@last_day).order(:worked_on)
   end
-
   rescue ActiveRecord::RecordInvalid # トランザクションによるエラーの分岐です。
     flash[:danger] = "ページ情報の取得に失敗しました、再アクセスしてください。"
     redirect_to root_url
   end
 
+  def all_set_one_month 
+    @first_day = params[:date].nil? ? #nilだったらその月　
+    Date.current.beginning_of_month : params[:date].to_date
+    @last_day = @first_day.end_of_month
+    # 全ユーザーに紐付く一ヶ月分のレコードを検索し取得します。
+    @schedules = Schedule.where(worked_on: @first_day..@last_day).order(:worked_on, :user_id).group_by(&:worked_on)
+  end
 
   private
 

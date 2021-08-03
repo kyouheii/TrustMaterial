@@ -23,8 +23,13 @@ ActiveRecord::Schema.define(version: 2021_07_15_112922) do
   create_table "schedules", force: :cascade do |t|
     t.date "worked_on"
     t.integer "user_id"
+    t.string "round_batsu"
+    t.string "note"
+    t.string "site_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "color_change_site", default: false
+    t.boolean "color_round_batsu", default: false
     t.index ["user_id"], name: "index_schedules_on_user_id"
   end
 
