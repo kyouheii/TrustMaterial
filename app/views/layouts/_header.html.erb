@@ -6,9 +6,17 @@
         <li><%= link_to "トップへ", root_path %></li>
         <% if user_signed_in? %>
           <% if current_user.admin? %>
-            <li><%= link_to "交通費一覧", '#' %></li>
-            <li><%= link_to "見積書一覧", '#' %></li>
-            <li><%= link_to "請求書一覧", '#' %></li>
+            <li><%= link_to "スケジュール一覧"(全員), all_edit_one_month_schedules_path(current_user) %></li>
+            <%
+=begin%>
+ <li><%= link_to "見積書一覧", '#' %></li> 
+<%
+=end%>
+            <%
+=begin%>
+ <li><%= link_to "請求書一覧", '#' %></li> 
+<%
+=end%>
           <% end %>
          
           <li class="nav-item dropdown">
@@ -17,7 +25,11 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "スケジュール一覧", edit_one_month_schedules_path(current_user) %></li>
-              <li><%= link_to "アカウント情報の更新", '#' %></li>
+              <%
+=begin%>
+ <li><%= link_to "アカウント情報の更新", '#' %></li> 
+<%
+=end%>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
