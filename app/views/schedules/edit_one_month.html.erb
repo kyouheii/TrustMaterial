@@ -49,13 +49,11 @@
               </td>
               <td>
                 <div class="form-group">
-                  <% if current_user.admin? %>
                     <% if day.color_change_site? %>
                       <%= s.text_field :site_name, class: "form-control", style: 'color: red' %>
                     <% else %>
                       <%= s.text_field :site_name, class: "form-control" %>
                     <% end %>
-                  <% end %>
                 </div>
               </td>
               <td><%= s.text_field :note, class: "form-control" %></td>

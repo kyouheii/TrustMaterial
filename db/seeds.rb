@@ -7,8 +7,8 @@ User.create!(name: "管理者",
 User.create!(name: "白神",
   email: "sample-1@email.com",
   password: "password",
-  password_confirmation: "password"
-  )
+  password_confirmation: "password"  
+)
 
 User.create!(name: "丸川",
   email: "sample-2@email.com",
