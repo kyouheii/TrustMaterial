@@ -1,8 +1,7 @@
 class UsersController < ApplicationController
   
   def show
-    
-
+    redirect_back(fallback_location: root_path) #元のページに戻る
   end
 
   def new
