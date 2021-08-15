@@ -36,3 +36,23 @@
   @extend .alert-danger;
 }
   
+.background-img {
+  width: 100%;
+  height: auto;
+  background-image: url("/assets/LIXIL.jpeg");
+}
+
+body {
+  padding-top: 50px !important;
+  margin: 0 !important;
+}
+
+.btn-lg, .btn-group-lg > .btn {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+  display: block !important;
+  width: 200px !important;
+  margin: 0 auto !important;
+}
