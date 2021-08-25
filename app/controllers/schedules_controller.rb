@@ -60,7 +60,7 @@ class SchedulesController < ApplicationController
         type: 'text',
         text: 'スケジュールを更新しました。 確認して下さい。'
       }
-      response = client.broadcast(message)
+      # response = client.broadcast(message)
       redirect_to all_edit_one_month_schedules_url(@user) and return
     end
   rescue ActiveRecord::RecordInvalid # トランザクションによるエラーの分岐です。
