@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
   before_action :all_set_one_month, only: %i(all_edit_one_month)
 
   def edit_one_month
-
+    @user = User.find(params[:id])
   end
 
   def update_one_month

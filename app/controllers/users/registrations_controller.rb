@@ -10,20 +10,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   if params[:user][:password] != params[:user][:password_confirmation]
-  #     redirect_to new_user_registration_path, alert: 'パスワードが一致していません。'
-  #   else
-  #     password = Devise.friendly_token.first(7)
-  #     if @user = User.find_by(email: params[:user][:email])
-  #       redirect_to new_user_registration_path, alert: 'すでにメールアドレスが存在します。'
-  #     else
-  #       @user = User.create(email: params[:user][:email], password: params[:user][:password], password_confirmation: params[:user][:password_confirmation])
-  #       sign_in @user
-  #       redirect_to new_user_registration_path, notice: 'ログインしました。'
-  #     end
-  #   end
-  # end
+  def create
+    if params[:user][:password] != params[:user][:password_confirmation]
+      redirect_to new_user_registration_path, alert: 'パスワードが一致していません。'
+    else
+      password = Devise.friendly_token.first(7)
+      if @user = User.find_by(email: params[:user][:email])
+        redirect_to new_user_registration_path, alert: 'すでにメールアドレスが存在します。'
+      else
+        @user = User.create(user_params)
+        sign_in @user
+        redirect_to new_user_registration_path, notice: 'ログインしました。'
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -71,9 +71,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
-  # private
+  private
 
-  # def user_params
-  #   params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  # end
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
 end
